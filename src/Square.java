@@ -2,9 +2,12 @@ public class Square
 {
 
 
-    private int type; // 0 = open, 1 = wall, 2 = entrance, 3 = exit
+    private int type;
+    // 0 = open, 1 = wall, 2 = entrance, 3 = exit
     private int row;
     private int col;
+    private int explored;
+    // -1 = DNE, 0 = blank, 1 = on list, 2 = explored, 3 = on path
 
     //constructor
     public Square(int row, int col, int type)
@@ -12,6 +15,14 @@ public class Square
         this.row = row;
         this.col = col;
         this.type = type;
+        if (this.type == 0)
+        {
+            this.explored = 0;
+        }
+        else
+        {
+            this.explored = -1;
+        }
     }
 
     public void setType(int type)
@@ -45,6 +56,18 @@ public class Square
     public int getType()
     {
         return this.type;
+    }
+
+    public void reset()
+    {
+        if (this.type == 0)
+        {
+            this.explored = 0;
+        }
+        else
+        {
+            this.explored = -1;
+        }
     }
 
     //returns string
