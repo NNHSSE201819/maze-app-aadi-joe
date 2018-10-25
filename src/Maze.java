@@ -17,7 +17,7 @@ public class Maze
         try
         {
             File mazeFile = new File(frame);
-            Scanner s = new Scanner(frame);
+            Scanner s = new Scanner(mazeFile);
             int row = s.nextInt();
             int col = s.nextInt();
             this.maze = new Square[row][col];
@@ -40,7 +40,7 @@ public class Maze
 
     public ArrayList<Square> getNeighbors(Square sq)
     {
-        ArrayList<Square> n = new ArrayList();
+        ArrayList<Square> n = new ArrayList<>();
         int row = sq.getRow();
         int col = sq.getCol();
 
@@ -100,11 +100,12 @@ public class Maze
         String s = "";
         for (int r=0; r < maze.length; r++)
         {
-            s = "";
+
             for (int c=0; c < maze[0].length; c++)
             {
-                s += maze[r][c].toString();
+                s = s + " " + maze[r][c].toString();
             }
+            s += "/n";
         }
         return s;
 
