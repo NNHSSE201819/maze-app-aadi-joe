@@ -70,6 +70,11 @@ public class Square
         }
     }
 
+    public int getExplored()
+    {
+        return this.explored;
+    }
+
     //returns string
     public String toString()
     {
