@@ -3,7 +3,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Maze{
+public class Maze
+{
     private Square[][] maze;
 
 
@@ -64,22 +65,25 @@ public class Maze{
 
     public Square getStart()
     {
+        Square s = null;
         for (int r=0; r < maze.length; r++) {
             for (int c=0; c < maze[0].length; c++) {
                 if (maze[r][c].getType() == 2)
-                {return maze[r][c];}
+                {s = maze[r][c];}
                 
             }
         }
+        return s;
     }
     public Square getFinish()
-    {
+    {   Square s = null;
         for (int r=0; r < maze.length; r++) {
             for (int c=0; c < maze[0].length; c++) {
                 if (maze[r][c].getType() == 3)
-                {return maze[r][c];}
+                {s =  maze[r][c];}
             }
         }
+        return s;
     }
 
     public void reset()
@@ -93,7 +97,19 @@ public class Maze{
 
     public String toString()
     {
+        String s = "";
+        for (int r=0; r < maze.length; r++)
+        {
+            s = "";
+            for (int c=0; c < maze[0].length; c++)
+            {
+                s += maze[r][c].toString();
+            }
+        }
+        return s;
 
     }
 
 }
+
+
