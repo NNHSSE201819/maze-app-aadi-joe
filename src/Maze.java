@@ -46,11 +46,11 @@ public class Maze
 
         if(maze[row-1][col]!= null)
         {
-            n.add(maze[row+1][col]);
+            n.add(maze[row-1][col]);
         }
         if(maze[row][col+1]!= null)
         {
-            n.add(maze[row+1][col]);
+            n.add(maze[row][col+1]);
         }
         if(maze[row+1][col]!= null)
         {
@@ -58,7 +58,7 @@ public class Maze
         }
         if(maze[row][col-1]!= null)
         {
-            n.add(maze[row+1][col]);
+            n.add(maze[row][col-1]);
         }
         return n;
     }
