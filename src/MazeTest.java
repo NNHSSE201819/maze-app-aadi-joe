@@ -54,14 +54,10 @@ public class MazeTest extends TestCase
     {
         Maze m = new Maze();
         m.loadMaze("src/maze-3");
+        String s = m.toString();
         m.reset();
-        Square s = new Square(2,2,0);
-        ArrayList<Square> list= new ArrayList<>();
-        list = m.getNeighbors(s);
-        for (int i = 0; i < list.size(); i++)
-        {
-            assertEquals(0, s.getExplored());
-        }
+        String t = m.toString();
+        assertEquals(s,t);
     }
 
     public void testToString()

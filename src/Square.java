@@ -96,4 +96,9 @@ public class Square
         }
         else return "Incorrect Type, not in range";
     }
+
+    public void equals()
+    {
+
+    }
 }
