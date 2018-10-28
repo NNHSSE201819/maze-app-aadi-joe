@@ -70,10 +70,7 @@ public class Square
         }
     }
 
-    public int getExplored()
-    {
-        return this.explored;
-    }
+
 
     //returns string
     public String toString()
@@ -97,8 +94,29 @@ public class Square
         else return "Incorrect Type, not in range";
     }
 
-    public void equals()
+    @Override
+    public boolean equals(Object o)
     {
 
+        Square s = (Square)o;
+        boolean r = this.row == s.getRow();
+        boolean c = this.col == s.getCol();
+        boolean t = this.type == s.getType();
+        if(r && c && r)
+        {
+            if(r == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+        else
+        {
+            return false;
+        }
     }
 }
