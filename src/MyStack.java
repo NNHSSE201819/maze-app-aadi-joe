@@ -1,23 +1,23 @@
 import java.util.NoSuchElementException;
 import java.util.ArrayList;
 
-public class MyStack<T>
+public class MyStack<T> implements StackADT<T>
 {
-    private ArrayList a = new ArrayList<T>();
+    private ArrayList<T> a = new ArrayList<T>();
 
     public void push(T item)
     {
         a.add(item);
     }
 
-    public void pop() throws NoSuchElementException
+    public T pop() throws NoSuchElementException
     {
-        a.remove(a.size()-1);
+        return a.remove(a.size()-1);
     }
 
-    public void top() throws NoSuchElementException
+    public T top() throws NoSuchElementException
     {
-        a.get(a.size()-1);
+        return a.get(a.size()-1);
     }
 
     public int size()
