@@ -25,8 +25,9 @@ public class MyQueueTest extends TestCase
 
     public void testFront()
     {
-        assertEquals(new Integer(3), q.front());
-        assertEquals(new Integer(3), q.front());
+        assertEquals(new Integer(7), q.front());
+        assertEquals(new Integer(7), q.dequeue());
+        assertEquals(new Integer(4), q.front());
     }
 
     public void testSize()
