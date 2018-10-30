@@ -1,13 +1,10 @@
 public abstract class MazeSolver
 {
-    public abstract void makeEmpty();
-    public abstract boolean isEmpty();
-    public abstract void add(Square sq);
-    public abstract Square next();
+    protected Maze m;
 
     public MazeSolver(Maze maze)
     {
-
+        this.m = maze;
     }
 
     public boolean isSolved()
@@ -29,4 +26,10 @@ public abstract class MazeSolver
     {
 
     }
+
+    public abstract void makeEmpty();
+    public abstract boolean isEmpty();
+    public abstract void add(Square sq);
+    public abstract Square next();
+
 }

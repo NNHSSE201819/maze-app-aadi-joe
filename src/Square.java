@@ -1,7 +1,7 @@
 public class Square
 {
 
-
+    private Square previous;
     private int type;
     // 0 = open, 1 = wall, 2 = entrance, 3 = exit
     private int row;
@@ -12,6 +12,7 @@ public class Square
     //constructor
     public Square(int row, int col, int type)
     {
+        this.previous = null;
         this.row = row;
         this.col = col;
         this.type = type;
@@ -39,6 +40,8 @@ public class Square
     {
         this.col = col;
     }
+
+    public void setPrevious(Square s){this.previous = s;}
 
     //returns row
     public int getRow()
