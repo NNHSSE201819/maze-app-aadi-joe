@@ -8,14 +8,21 @@ public class MyQueue<T> implements QueueADT<T>
 
     public void enqueue(T item)
     {
-        this.current = this.first;
-        while (this.current.hasNext())
-        {
-            this.current = this.current.next;
-        }
         Node node = new Node();
         node.data = item;
-        current.next = node;
+        if (this.first == null)
+        {
+            this.first = node;
+        }
+        else
+        {
+            this.current = this.first;
+            while (this.current.hasNext())
+            {
+                this.current = this.current.next;
+            }
+            current.next = node;
+        }
     }
 
     public T dequeue() throws NoSuchElementException
@@ -48,7 +55,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public boolean isEmpty()
     {
-        if (this.first.data == null)
+        if (this.first == null)
         {
             return true;
         }
@@ -61,7 +68,7 @@ public class MyQueue<T> implements QueueADT<T>
         {
             this.dequeue();
         }
-        this.dequeue();
+        this.first = null;
     }
 
     class Node

@@ -7,18 +7,18 @@ public class MyQueueTest extends TestCase
     public MyQueueTest()
     {
         q = new MyQueue<Integer>();
-        q.enqueue(7);
-        q.enqueue(4);
-        q.enqueue(3);
+        q.enqueue(new Integer(7));
+        q.enqueue(new Integer(4));
+        q.enqueue(new Integer(3));
     }
 
 
     public void testEnqueueDequeue()
     {
         assertEquals(new Integer(7), q.dequeue());
-        q.enqueue(5);
+        q.enqueue(new Integer(5));
         assertEquals(new Integer(4), q.dequeue());
-        q.enqueue(6);
+        q.enqueue(new Integer(6));
 
     }
 
@@ -41,5 +41,7 @@ public class MyQueueTest extends TestCase
 
     public void testClear()
     {
+        q.clear();
+        assertEquals(true, q.isEmpty());
     }
 }
