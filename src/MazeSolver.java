@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public abstract class MazeSolver
 {
     protected Maze m;
 
+
     public MazeSolver(Maze maze)
     {
+
         this.m = maze;
     }
 
@@ -19,7 +23,24 @@ public abstract class MazeSolver
 
     public Square step()
     {
+        if (isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            if(next().getType() == 3)
+            {
+                getPath();
+                return next();
+            }
+            else
+            {
+                add(next());
+                return step();
 
+            }
+        }
     }
 
     public void solve()

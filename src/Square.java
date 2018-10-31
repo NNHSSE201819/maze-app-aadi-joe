@@ -3,7 +3,7 @@ public class Square
 
     private Square previous;
     private int type;
-    // 0 = open, 1 = wall, 2 = entrance, 3 = exit
+    // 0 = open, 1 = wall, 2 = entrance, 3 = exit,
     private int row;
     private int col;
     private int explored;
