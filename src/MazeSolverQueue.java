@@ -15,6 +15,25 @@ public class MazeSolverQueue extends MazeSolver
     {
         Maze maze = new Maze();
         maze.loadMaze("src/maze-3");
+        MazeSolver solver = new MazeSolverQueue(maze);
+        solver.solve();
+        System.out.println(solver.getPath());
+        System.out.println(maze.getFinish().getPrevious());
 
+    }
+
+    public boolean isEmpty()
+    {
+        return q.isEmpty();
+    }
+
+    public void add(Square sq)
+    {
+        q.enqueue(sq);
+    }
+
+    public Square next()
+    {
+        return q.dequeue();
     }
 }
