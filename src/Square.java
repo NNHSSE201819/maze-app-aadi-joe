@@ -122,4 +122,16 @@ public class Square
             return false;
         }
     }
+
+    public int getExplored() {
+        return explored;
+    }
+
+    public void setExplored(int explored) {
+        this.explored = explored;
+    }
+
+    public Square getPrevious() {
+        return previous;
+    }
 }
