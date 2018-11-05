@@ -44,6 +44,44 @@ public class Maze
         int row = sq.getRow();
         int col = sq.getCol();
 
+        if(row == 0)
+        {
+            if (col == 0)
+            {
+                if(maze[row][col+1]!= null)
+                {
+                    n.add(maze[row][col+1]);
+                }
+                if(maze[row+1][col]!= null)
+                {
+                    n.add(maze[row+1][col]);
+                }
+            }
+            else
+            {
+
+                if(maze[row][col+1]!= null)
+                {
+                    n.add(maze[row][col+1]);
+                }
+                if(maze[row+1][col]!= null)
+                {
+                    n.add(maze[row+1][col]);
+                }
+                if(maze[row][col-1]!= null)
+                {
+                    n.add(maze[row][col-1]);
+                }
+            }
+
+        }
+        else if(col == 0)
+        {
+
+        }
+
+
+
         if(maze[row-1][col]!= null)
         {
             n.add(maze[row-1][col]);
