@@ -9,7 +9,7 @@ public class MySolverStack extends MazeSolver
     public void makeEmpty()
     {
 
-        worklist.clear();
+        worklist = new MyStack<>();
     }
 
 
@@ -25,21 +25,17 @@ public class MySolverStack extends MazeSolver
 
     public boolean isEmpty()
     {
-        if(worklist.isEmpty() == true)
-        {
-            return true;
-        }
-        return false;
+        return worklist.isEmpty();
     }
 
     public static void main(String[]args)
     {
         Maze m = new Maze();
-        m.loadMaze("maze-1");
+        m.loadMaze("src/maze-1");
         MazeSolver solver = new MySolverStack(m);
         solver.solve();
         System.out.println(solver.getPath());
-        System.out.println(m.getPrevious());
+
 
     }
 }
