@@ -77,7 +77,17 @@ public class Maze
         }
         else if(col == 0)
         {
-
+            if(maze[row-1][col]!= null)
+            {
+                n.add(maze[row-1][col]);
+            }
+            if(maze[row][col+1]!= null)
+            {
+                n.add(maze[row][col+1]);
+            }
+            if(maze[row+1][col]!= null)
+            {
+                n.add(maze[row+1][col]);
         }
 
 
