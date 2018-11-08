@@ -3,30 +3,24 @@ import java.util.ArrayList;
 public abstract class MazeSolver
 {
     protected Maze m;
-
+    private boolean isSolved;
 
     public MazeSolver(Maze maze)
     {
-
+        makeEmpty();
+        add(maze.getStart());
         this.m = maze;
+        this.isSolved = false;
     }
 
     public boolean isSolved()
     {
-        Square n = next();
-        if(n.getType() == 3)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return isSolved;
     }
 
     public String getPath()
     {
-        Square n = next();
+        Square n = m.getFinish();
         String s = "";
         if(n.getType() != 3)
         {
@@ -77,12 +71,23 @@ public abstract class MazeSolver
 
     public void solve()
     {
-        Square s = next();
-        while(s.getType() != 3 && isEmpty()== false)
+        while (isSolved == false)
         {
-            step();
+            Square s = step();
+            if (s == m.getFinish())
+            {
+                break;
+            }
+            else if(s == null)
+            {
+                isSolved = true;
+            }
+
         }
+        isSolved = true;
     }
+
+
 
     public abstract void makeEmpty();
     public abstract boolean isEmpty();
