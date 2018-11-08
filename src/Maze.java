@@ -89,6 +89,15 @@ public class Maze
             {
                 n.add(maze[row+1][col]);
         }
+        else if(row == maze.length)
+        {
+            if(col == 0)
+        }
+
+
+
+
+
 
 
 
