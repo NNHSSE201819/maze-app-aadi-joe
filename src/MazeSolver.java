@@ -20,19 +20,35 @@ public abstract class MazeSolver
 
     public String getPath()
     {
-        Square n = m.getFinish();
-        String s = "";
-        if(n.getType() != 3)
+        Square p = m.getFinish().getPrevious();
+        if(p == null)
         {
-            return  "You are not at the exit";
+
+            return "You are not at the exit.";
+
         }
 
-        while(n.getPrevious().getType() !=  2)
+        ArrayList<Square> l = new ArrayList<>();
+        Square s = m.getFinish();
+        while(s!=m.getStart())
         {
-            s += Integer.toString(n.getRow()) + ", " + Integer.toString(n.getCol()) + ";";
-            n = n.getPrevious();
+            l.add(s);
+            s = s.getPrevious();
+
+            if(s != m.getStart())
+            {
+                s.setType(6);
+            }
         }
-        return s;
+        String output = m.getStart().toString();
+        for(int i = l.size()-1; i>0; i--)
+        {
+
+            output += "=>["+l.get(i).getRow()+","+l.get(i).getCol()+"]";
+        }
+        output += "=>"+ m.getFinish().toString();
+        return output;
+
     }
 
     public Square step()
@@ -48,10 +64,11 @@ public abstract class MazeSolver
         {
             getPath();
             return n;
+
         }
 
         ArrayList<Square> s = m.getNeighbors(n);
-        for(int i =4; i >0; i--)
+        for(int i = s.size()-1; i >0; i--)
         {
             if(s.get(i).getType() != 0)
             {

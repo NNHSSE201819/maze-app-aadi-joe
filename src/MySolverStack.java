@@ -35,7 +35,7 @@ public class MySolverStack extends MazeSolver
         MazeSolver solver = new MySolverStack(m);
         solver.solve();
         System.out.println(solver.getPath());
-
+        System.out.println(m.getFinish().getPrevious());
 
     }
 }

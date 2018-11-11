@@ -20,6 +20,7 @@ public class MazeSolverQueue extends MazeSolver
         System.out.println(solver.getPath());
         System.out.println(maze.getFinish().getPrevious());
 
+
     }
 
     public boolean isEmpty()

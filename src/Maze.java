@@ -44,74 +44,71 @@ public class Maze
         int row = sq.getRow();
         int col = sq.getCol();
 
-        if(row == 0)
-        {
-            if (col == 0)
-            {
-                if(maze[row][col+1]!= null)
-                {
-                    n.add(maze[row][col+1]);
-                }
-                if(maze[row+1][col]!= null)
-                {
-                    n.add(maze[row+1][col]);
-                }
-            }
-            else
-            {
-
-                if(maze[row][col+1]!= null)
-                {
-                    n.add(maze[row][col+1]);
-                }
-                if(maze[row+1][col]!= null)
-                {
-                    n.add(maze[row+1][col]);
-                }
-                if(maze[row][col-1]!= null)
-                {
-                    n.add(maze[row][col-1]);
-                }
-            }
-
-        }
-        else if(col == 0)
-        {
-            if(maze[row-1][col]!= null)
-            {
-                n.add(maze[row-1][col]);
-            }
-            if(maze[row][col+1]!= null)
-            {
-                n.add(maze[row][col+1]);
-            }
-            if(maze[row+1][col]!= null)
-            {
-                n.add(maze[row+1][col]);
-        }
-        else if(row == maze.length)
-        {
-            if(col == 0)
-        }
-
-
-        if(maze[row-1][col]!= null)
-        {
-            n.add(maze[row-1][col]);
-        }
-        if(maze[row][col+1]!= null)
-        {
-            n.add(maze[row][col+1]);
-        }
-        if(maze[row+1][col]!= null)
+        if(row == 0 && col == 0)
         {
             n.add(maze[row+1][col]);
+            n.add(maze[row][col+1]);
+            return n;
         }
-        if(maze[row][col-1]!= null)
+        else if(row == 0 && col == maze[0].length-1)
         {
+            n.add(maze[row+1][col]);
             n.add(maze[row][col-1]);
+            return n;
         }
-        return n;
+        else if(row == maze.length-1 && col == maze[0].length-1)
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row][col-1]);
+            return n;
+        }
+        else if(row == maze.length-1 && col == 0)
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row][col+1]);
+            return n;
+        }
+        else if(row == 0 && (col != 0 && col != maze[0].length-1))
+        {
+            n.add(maze[row+1][col]);
+            n.add(maze[row][col-1]);
+            n.add(maze[row][col+1]);
+            return n;
+        }
+        else if(col == 0 && (row != 0 && row != maze.length-1))
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row+1][col]);
+            n.add(maze[row][col+1]);
+
+            return n;
+        }
+        else if(row == maze.length-1 && (col!=0 && col != maze[0].length-1))
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row][col-1]);
+            n.add(maze[row][col+1]);
+
+            return n;
+        }
+        else if(col == maze[0].length-1 && (row != 0 && row != maze.length-1))
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row+1][col]);
+            n.add(maze[row][col-1]);
+            return n;
+        }
+        else
+        {
+            n.add(maze[row-1][col]);
+            n.add(maze[row+1][col]);
+            n.add(maze[row][col-1]);
+            n.add(maze[row][col+1]);
+            return n;
+        }
+
+
+
     }
 
     public Square getStart()
