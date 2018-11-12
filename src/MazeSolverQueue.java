@@ -14,7 +14,7 @@ public class MazeSolverQueue extends MazeSolver
     public static void main(String[] args)
     {
         Maze maze = new Maze();
-        maze.loadMaze("src/maze-3");
+        maze.loadMaze("src/maze-1");
         MazeSolver solver = new MazeSolverQueue(maze);
         solver.solve();
         System.out.println(solver.getPath());

@@ -59,6 +59,7 @@ public abstract class MazeSolver
             return null;
         }
         Square n = next();
+        n.setExplored(2);
 
         if(n.getType() == 3)
         {
@@ -68,10 +69,8 @@ public abstract class MazeSolver
         }
 
         ArrayList<Square> s = m.getNeighbors(n);
-        for(int i = s.size()-1; i >0; i--)
-        {
-            if(s.get(i).getType() != 0)
-            {
+        for(int i = s.size()-1; i >0; i--) {
+            if (s.get(i).getType() != 0 || s.get(i).getExplored() != 0) {
                 s.remove(i);
             }
         }
@@ -79,7 +78,7 @@ public abstract class MazeSolver
         {
             if(sq.getExplored() == 0)
             {
-                sq.setExplored(2);
+                sq.setExplored(1);
                 add(sq);
             }
         }
