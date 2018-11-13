@@ -153,7 +153,7 @@ public class Maze
             {
                 s = s + " " + maze[r][c].toString();
             }
-            s += "/n";
+            s += "\n";
         }
         return s;
 

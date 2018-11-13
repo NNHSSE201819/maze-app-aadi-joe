@@ -59,29 +59,30 @@ public abstract class MazeSolver
             return null;
         }
         Square n = next();
-        n.setExplored(2);
 
-        if(n.getType() == 3)
-        {
-            getPath();
-            return n;
-
-        }
 
         ArrayList<Square> s = m.getNeighbors(n);
-        for(int i = s.size()-1; i >0; i--) {
-            if (s.get(i).getType() != 0 || s.get(i).getExplored() != 0) {
+        for(int i = s.size()-1; i >= 0; i--)
+        {
+            if(s.get(i).getType() == 3)
+            {
+                s.get(i).setPrevious(n);
+                getPath();
+                return n;
+            }
+            if (s.get(i).getType() != 0 || s.get(i).getExplored() != 0)
+            {
                 s.remove(i);
             }
         }
-        for (Square sq : s)
+        for (int i = 0; i <= s.size()-1; i++)
         {
-            if(sq.getExplored() == 0)
-            {
-                sq.setExplored(1);
-                add(sq);
-            }
+            s.get(i).setExplored(1);
+            s.get(i).setPrevious(n);
+            add(s.get(i));
+
         }
+        n.setExplored(2);
         return n;
     }
 
@@ -89,6 +90,7 @@ public abstract class MazeSolver
     {
         while (isSolved == false)
         {
+            System.out.println(m);
             Square s = step();
             if (s == m.getFinish())
             {
