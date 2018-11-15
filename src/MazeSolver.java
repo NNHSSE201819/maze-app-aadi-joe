@@ -37,13 +37,13 @@ public abstract class MazeSolver
 
             if(s != m.getStart())
             {
-                s.setType(6);
+                s.setExplored(3);
+
             }
         }
         String output = m.getStart().toString();
         for(int i = l.size()-1; i>0; i--)
         {
-
             output += "=>["+l.get(i).getRow()+","+l.get(i).getCol()+"]";
         }
         output += "=>"+ m.getFinish().toString();

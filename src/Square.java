@@ -80,7 +80,23 @@ public class Square
     {
         if (this.type == 0)
         {
-            return "_";
+            if(this.explored == 1)
+            {
+                return "0";
+            }
+            if(this.explored == 2)
+            {
+                return ".";
+            }
+            else if(this.explored == 3)
+            {
+                return "x";
+            }
+            else
+            {
+                return "_";
+            }
+
         }
         else if (this.type == 1)
         {
