@@ -31,7 +31,7 @@ public class MySolverStack extends MazeSolver
     public static void main(String[]args)
     {
         Maze m = new Maze();
-        m.loadMaze("src/maze-81a");
+        m.loadMaze("src/maze-occs");
         MazeSolver solver = new MySolverStack(m);
         solver.solve();
         System.out.println(solver.getPath());
