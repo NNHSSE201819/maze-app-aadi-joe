@@ -27,7 +27,7 @@ public abstract class MazeSolver
             return "You are not at the exit.";
 
         }
-
+        String output = m.getStart().toString();
         ArrayList<Square> l = new ArrayList<>();
         Square s = m.getFinish();
         while(s!=m.getStart())
@@ -41,7 +41,8 @@ public abstract class MazeSolver
 
             }
         }
-        String output = m.getStart().toString();
+
+
         for(int i = l.size()-1; i>0; i--)
         {
             output += "=>["+l.get(i).getRow()+","+l.get(i).getCol()+"]";
@@ -68,6 +69,7 @@ public abstract class MazeSolver
             {
                 s.get(i).setPrevious(n);
                 getPath();
+                makeEmpty();
                 return n;
             }
             if (s.get(i).getType() != 0 || s.get(i).getExplored() != 0)
